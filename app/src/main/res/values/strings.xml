@@ -1,5 +1,14 @@
 <resources>
     <string name="app_name">Converter</string>
     <string name="title_activity_currency_settings">CurrencySettings</string>
+    <string name="enter_value">Enter your value here</string>
+    <string name="aud">AUD</string>
+    <string name="result">Result will appear here!</string>
+    <string name="choose_a_currency">Choose a currency!</string>
+    <string name="change_currency">Change Currency</string>
+    <string name="home">Home</string>
+    <string name="options">Options</string>
+    <string name="reset">Reset</string>
+    <string name="pick_a_currency_below">Pick a currency below</string>
 </resources>
 

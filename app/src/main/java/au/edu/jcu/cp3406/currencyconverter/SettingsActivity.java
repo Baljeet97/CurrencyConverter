@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -37,52 +36,45 @@ public class SettingsActivity extends AppCompatActivity {
 //        defaultImage = findViewById(R.id.defaultImage);
 
         //IF/ELSE statement to decide which radio button is checked by default, based on previous or default selection for the Significant Figures
-        if(preferences.getInt("roundingOff", 2) == 0){
+        if (preferences.getInt("roundingOff", 2) == 0) {
             sigFigRadioGroup.check(wholeNumber.getId());
+        } else {
+            sigFigRadioGroup.check(twoDecimals.getId());
         }
-        else{sigFigRadioGroup.check(twoDecimals.getId());}
 
         //IF/ELSE statement to decide which radio button is checked by default, based on previous or default selection for the Themes
-        if(preferences.getString("themeName", "AppTheme").equals("AppTheme")){
+        if (preferences.getString("themeName", "AppTheme").equals("AppTheme")) {
             themeRadioGroup.check(defaultTheme.getId());
-        }
-        else if(preferences.getString("themeName", "AppTheme").equals("NightMode")){
+        } else if (preferences.getString("themeName", "AppTheme").equals("NightMode")) {
             themeRadioGroup.check(nightTheme.getId());
         }
     }
 
     @Override
-    protected void onStart() {  //onStart load the image for the preferred currency settings, based on previous or default selection
+    protected void onStart() {
         super.onStart();
-        String imageFileName = preferences.getString("settingsPref", "sgd");
-        int resId = getResources().getIdentifier(imageFileName, "drawable", getPackageName());
-//        defaultImage.setImageResource(resId);
+
     }
 
     //Method onButtonPress for android:onClick in the activity_settings.xml file
-    public void onButtonPress(View view){
-        Intent goToCurrencyMenu = new Intent(this, CurrencyList.class);  //Intent for switching to the currency options page
+    public void onButtonPress(View view) {
+        //Intent for switching to the currency options page
         Intent returnToCurrencyConverter = new Intent(this, ConversionActivity.class);  //Intent for returning to the currency conversion page
 
         //Switch-Case statement for the different buttons and actions to be carried out
-        switch(view.getId()){
-            case R.id.backButton:   //Returns user to the currency conversion activity
-                startActivity(returnToCurrencyConverter);
-                finish();
-                break;
+        if (view.getId() == R.id.backButton) {   //Returns user to the currency conversion activity
+            startActivity(returnToCurrencyConverter);
+            finish();
 
-//            case R.id.currencyOptionsButton:    //Brings user to the currency type screen
-//                preferences.edit().putBoolean("settingsBoolean", true).apply(); //Boolean variable to check if currency options page is accessed from Settings, and not the curreny conversion activity
-//                startActivity(goToCurrencyMenu);
-//                break;
+
         }
     }
 
     //Method onRadioButtonPress for android:onClick for radio buttons in the activity_settings.xml file
-    public void onRadioButtonPress(View view){
+    public void onRadioButtonPress(View view) {
         Intent refreshSettings = new Intent(this, SettingsActivity.class);  //Intent used to restart the activity to reflect changes to the theme
         refreshSettings.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //Enables a smoother transition
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.wholeNumber:
                 preferences.edit().putInt("roundingOff", 0).apply();    //set preferences to whole numbers
                 break;
@@ -103,12 +95,11 @@ public class SettingsActivity extends AppCompatActivity {
     }
 
     //Method to set preference application theme according to previous user selection
-    public void setPrefTheme(){
+    public void setPrefTheme() {
         String prefTheme = preferences.getString("themeName", "AppTheme");
-        if(prefTheme.equals("AppTheme")){
+        if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
-        }
-        else if(prefTheme.equals("NightMode")){
+        } else if (prefTheme.equals("NightMode")) {
             setTheme(R.style.NightMode);
         }
 

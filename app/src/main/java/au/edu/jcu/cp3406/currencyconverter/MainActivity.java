@@ -22,22 +22,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     //Method onButtonPress for android:onClick in the activity_main.xml file
-    public void onButtonPress(View view){
-        switch(view.getId()){
-            case R.id.currencyButton:   //Starts activity_convert_currency on button click
-                Intent convertCurrency = new Intent(this, ConversionActivity.class);
-                startActivity(convertCurrency);
-                break;
+    public void onButtonPress(View view) {
+        if (view.getId() == R.id.currencyButton) {   //Starts activity_convert_currency on button click
+            Intent convertCurrency = new Intent(this, ConversionActivity.class);
+            startActivity(convertCurrency);
         }
     }
 
     //Method to set preference application theme according to previous user selection
-    public void setPrefTheme(){
+    public void setPrefTheme() {
         String prefTheme = preferences.getString("themeName", "AppTheme");
-        if(prefTheme.equals("AppTheme")){
+        if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
-        }
-        else if(prefTheme.equals("NightMode")){
+        } else if (prefTheme.equals("NightMode")) {
             setTheme(R.style.NightMode);
         }
     }

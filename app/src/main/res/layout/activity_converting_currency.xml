@@ -1,41 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="8"
     android:padding="10dp"
+    android:weightSum="8"
     tools:context=".ConversionActivity">
 
     <!--Layout for currency to be converted portion-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:orientation="horizontal">
 
         <!--EditText for user input-->
         <EditText
             android:id="@+id/inputCurrency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Enter your value here"
-            android:textSize="20sp"
-            android:textAlignment="center"
             android:layout_gravity="center"
-            android:inputType="numberDecimal"
+            android:layout_weight="1"
+            android:autofillHints=""
+            android:hint="@string/enter_value"
             android:imeOptions="actionDone"
-            android:layout_weight="1"/>
+            android:inputType="numberDecimal"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:ignore="NestedWeights" />
 
         <!--Nested Layout for Image, text and Change currency Button-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <!--ImageView based on selected currency-->
 
@@ -44,9 +45,9 @@
                 android:id="@+id/inputCurrencyType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:text="AUD"
-                android:layout_gravity="center"/>
+                android:layout_gravity="center"
+                android:text="@string/aud"
+                android:textSize="30sp" />
 
             <!--Button to start activity to allow user to choose currency types-->
         </LinearLayout>
@@ -58,27 +59,28 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:orientation="horizontal">
 
         <!--TextView that displays converted currency results-->
         <TextView
             android:id="@+id/convertedCurrency"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:hint="Result will appear here!"
-            android:textSize="20sp"
-            android:textAlignment="center"
             android:layout_gravity="center"
-            android:layout_weight="1"/>
+            android:layout_weight="1"
+            android:hint="@string/result"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            tools:ignore="NestedWeights" />
 
         <!--Nested Layout for Image, text and Change currency Button-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_gravity="center"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <!--ImageView based on selected currency-->
 
@@ -88,7 +90,7 @@
                 android:layout_width="99dp"
                 android:layout_height="61dp"
                 android:layout_gravity="center"
-                android:text="Choose a currency!"
+                android:text="@string/choose_a_currency"
                 android:textSize="20sp" />
 
             <!--Button to start activity to allow user to choose currency types-->
@@ -98,7 +100,7 @@
                 android:layout_height="72dp"
                 android:layout_gravity="center"
                 android:onClick="onButtonPress"
-                android:text="Change Currency" />
+                android:text="@string/change_currency" />
         </LinearLayout>
     </LinearLayout>
 
@@ -106,35 +108,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_weight="1">
+        android:layout_weight="1"
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/homeButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Home"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:onClick="onButtonPress"/>
+            android:onClick="onButtonPress"
+            android:text="@string/home"
+            tools:ignore="ButtonStyle,NestedWeights" />
 
         <Button
             android:id="@+id/optionsButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Options"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:onClick="onButtonPress"/>
+            android:onClick="onButtonPress"
+            android:text="@string/options"
+            tools:ignore="ButtonStyle" />
 
         <Button
             android:id="@+id/resetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Reset"
             android:layout_gravity="center"
             android:layout_weight="1"
-            android:onClick="onButtonPress"/>
+            android:onClick="onButtonPress"
+            android:text="@string/reset"
+            tools:ignore="ButtonStyle" />
     </LinearLayout>
 
     <!--TextView to display a simple message-->

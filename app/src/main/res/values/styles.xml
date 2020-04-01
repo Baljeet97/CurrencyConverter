@@ -24,11 +24,6 @@
     <style name="NightMode" parent="Theme.AppCompat.Light.DarkActionBar" >
         <item name="android:colorBackground">@color/colorAccent</item>
         <item name="colorPrimary">@android:color/holo_blue_dark</item>
-        <item name="android:textColor">@color/primary_material_dark</item>
-        <item name="android:textColorPrimary">@color/primary_material_dark</item>
-        <item name="android:textColorSecondary">@color/primary_material_dark</item>
-        <item name="android:textColorSecondaryInverse">@color/primary_material_dark</item>
-        <item name="android:textColorPrimaryInverse">@color/primary_material_dark</item>
     </style>
 
 
