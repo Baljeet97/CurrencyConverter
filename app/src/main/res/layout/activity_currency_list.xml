@@ -1,0 +1,335 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:columnCount="3"
+    android:rowCount="6"
+    android:padding="10dp"
+    tools:context=".CurrencyList">
+
+    <!--First row, Description Text-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="107dp"
+        android:layout_row="0"
+        android:layout_columnSpan="3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/inputValue"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="2"
+            android:text="Pick a currency below"
+            android:textSize="20sp" />
+    </LinearLayout>
+
+    <!--Second row, First Column, USD-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="1"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/usdButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="USD"
+            android:onClick="onButtonPress"/>
+
+    </LinearLayout>
+
+    <!--Second row, Second Column, GBP-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="1"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/gbpButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="GBP"
+            android:padding="0dp"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="GBP"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Second row, Third Column, SGD-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="1"
+        android:layout_column="2"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/cadButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="CAD"
+            android:padding="0dp"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="SGD"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Third row, First Column, THB-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="2"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/thbButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="THB"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="THB"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Third row, Second Column, MYR-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="2"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/nzButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="NZD"
+            android:onClick="onButtonPress"/>
+
+    </LinearLayout>
+
+    <!--Third row, Third Column, JPY-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="2"
+        android:layout_column="2"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/jpyButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="JPY"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="JPY"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Fourth row, First Column, EUR-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="3"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/eurButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="EURO"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="EUR"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Fourth row, Second Column, AUD-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="3"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/sinButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="SIN"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="AUD"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Fourth row, Third Column, IDR-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="3"
+        android:layout_column="2"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/idrButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="IDR"
+            android:onClick="onButtonPress"/>
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="IDR"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Fifth row, First Column, NZD-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="4"
+        android:layout_column="0"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/uaeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="UAE"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="NZD"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Fifth row, Second Column, INR-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="4"
+        android:layout_column="1"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/inrButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:padding="0dp"
+            android:text="INR"
+            android:onClick="onButtonPress"/>
+
+        <!--        <TextView-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:gravity="center"-->
+        <!--            android:text="INR"-->
+        <!--            android:textAppearance="@android:style/TextAppearance.Material.Medium"/>-->
+    </LinearLayout>
+
+    <!--Fifth row, Third Column, HKD-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_row="4"
+        android:layout_column="2"
+        android:layout_rowWeight="1"
+        android:layout_columnWeight="1">
+
+        <Button
+            android:id="@+id/hkdButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="HKD"
+            android:padding="0dp"
+            android:onClick="onButtonPress"/>
+
+    </LinearLayout>
+</GridLayout>
