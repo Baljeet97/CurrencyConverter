@@ -1,22 +1,19 @@
 package au.edu.jcu.cp3406.currencyconverter;
-/*ConversionMethods is used to contain all the methods regarding the calculation of the currency conversion methods, and future mathematical methods*/
+/*ConversionMethod is use to convert store user input and convert it to selected currency*/
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 class ConversionMethods {
 
-    /*Part one of converting user input into selected currency type
-    Method convertUSD converts the user's input of selected currency type, stored in string variable currencyType,
-    into a base unit of United States Dollar (USD) and stores it in the global variable userInputUsd*/
-    static double convertUSD(double userInput) {
+    /*this method is use to store user input*/
+    static double convertAUD(double userInput) {
         double userInputUsd;
         userInputUsd = userInput;
         return userInputUsd;
     }
 
-    /*Part two of converting user input into selected currency type.
-    Method convertActual takes in the value of userInputUsd and calculates the result of the conversion based on what user has selected, stored in string variable currencyType*/
+    /*Part two of converting user input into selected currency type*/
     static double convertActual(String currencyType, double userInputUsd) {
         //Conversion rates are from  date : "30/3/2020" Time: 1pm"
         double convertedResult = 0.0;

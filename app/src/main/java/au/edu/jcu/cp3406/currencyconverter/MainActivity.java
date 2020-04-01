@@ -1,4 +1,5 @@
 package au.edu.jcu.cp3406.currencyconverter;
+/*Main activity runs */
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,27 +11,25 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
     Button currencyButton;
-    SharedPreferences preferences; //used to store and manage values based on user activity from current and other activities
+    SharedPreferences preferences; //to store preferences
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-        setPrefTheme(); //Setting preferred theme
+        setTheme(); //Setting theme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         currencyButton = findViewById(R.id.currencyButton);
     }
 
-    //Method onButtonPress for android:onClick in the activity_main.xml file
     public void onButtonPress(View view) {
-        if (view.getId() == R.id.currencyButton) {   //Starts activity_convert_currency on button click
+        if (view.getId() == R.id.currencyButton) {
             Intent convertCurrency = new Intent(this, ConversionActivity.class);
             startActivity(convertCurrency);
         }
     }
 
-    //Method to set preference application theme according to previous user selection
-    public void setPrefTheme() {
+    public void setTheme() {
         String prefTheme = preferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);

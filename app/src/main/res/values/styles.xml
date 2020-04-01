@@ -21,7 +21,7 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
-    <style name="NightMode" parent="Theme.AppCompat.Light.DarkActionBar" >
+    <style name="NightMode" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:colorBackground">@color/colorAccent</item>
         <item name="colorPrimary">@android:color/holo_blue_dark</item>
     </style>

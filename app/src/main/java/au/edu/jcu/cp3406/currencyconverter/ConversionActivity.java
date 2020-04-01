@@ -13,7 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.convertActual;
-import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.convertUSD;
+import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.convertAUD;
 import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.roundConvertedValue;
 
 
@@ -23,18 +23,18 @@ public class ConversionActivity extends AppCompatActivity {
     TextView convertedCurrency;
     TextView inputCurrencyType;
     TextView convertedCurrencyType;
-    double userInput; //used to store user input for calculations
-    double userInputUsd; //used in the conversion calculations
-    double convertedResult; //used in the conversion calculations
-    SharedPreferences preferences; //used to store and manage values based on user activity from current and other activities
+    double userInput; //to store user input
+    double userInputUsd; //conversion calculations
+    double convertedResult; //conversion calculations
+    SharedPreferences preferences; //to store and manage values based activities
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { //onCreate, creates all required objects
+    protected void onCreate(Bundle savedInstanceState) {
         preferences = getSharedPreferences("Settings", MODE_PRIVATE);
         setPrefTheme(); //Setting preferred theme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_converting_currency);
-        setTitle("Currency Converter"); //Setting display title
+        setTitle("Currency Converter"); //Setting title
         inputCurrency = findViewById(R.id.inputCurrency);
         convertedCurrency = findViewById(R.id.convertedCurrency);
         inputCurrencyType = findViewById(R.id.inputCurrencyType);
@@ -42,23 +42,22 @@ public class ConversionActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onStart() { //onStart, run main method currencyConverterMain
+    protected void onStart() {
         super.onStart();
         currencyConverterMain();
     }
 
-    protected void onResume() { //onResume, run main method currencyConverterMain
+    protected void onResume() {
         super.onResume();
         currencyConverterMain();
     }
 
-    /*Main method run onStart and onResume
-    Sets selected preferences, string values, and images, as well as converting user input according to selected currency types*/
+    /*Method to set preference, values, and converting user input to final result*/
     public void currencyConverterMain() {
 
         convertedCurrencyType.setText(preferences.getString("Option2", "Choose a currency!"));
 
-        inputCurrency.setText(preferences.getString("initialUserInput", null)); //Saves the user's input between switching activities.
+        inputCurrency.setText(preferences.getString("initialUserInput", null)); //Saving user input between activities.
 
         inputCurrency.addTextChangedListener(new TextWatcher() { //Listener for EditText inputCurrency
             @Override
@@ -69,18 +68,18 @@ public class ConversionActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try {
-                    preferences.edit().putString("initialUserInput", charSequence.toString()).apply(); //to save the value when returning from choosing currency type
+                    preferences.edit().putString("initialUserInput", charSequence.toString()).apply(); //saving currency type value
                     userInput = Double.parseDouble(charSequence.toString()); //converts user input into EditText to string
 
-                    //IF/ELSE statement to check if both currency type have been selected, and if so, proceeds with the conversion
+                    //if statement to check if currency type is selected
                     if (!convertedCurrencyType.getText().toString().equals("Choose a currency!")) {
-                        userInputUsd = convertUSD(userInput); //Calling conversion methods
-                        convertedResult = convertActual(convertedCurrencyType.getText().toString(), userInputUsd); //Calling conversion methods
-                        int roundOffInt = preferences.getInt("roundingOff", 2); //Obtaining the int value to round off based on user preference (default 2 decimal places)
-                        convertedCurrency.setText(Double.toString(roundConvertedValue(convertedResult, roundOffInt))); //Rounding off converted result, then parsing to String
+                        userInputUsd = convertAUD(userInput);
+                        convertedResult = convertActual(convertedCurrencyType.getText().toString(), userInputUsd);
+                        int roundOffInt = preferences.getInt("roundingOff", 2);
+                        convertedCurrency.setText(Double.toString(roundConvertedValue(convertedResult, roundOffInt)));
                     }
                 } catch (Exception ignored) {
-                } //Throws exception
+                }
             }
 
             @Override
@@ -92,34 +91,37 @@ public class ConversionActivity extends AppCompatActivity {
     //Method called for android:onClick in the activity_convert_currency.xml file
     @SuppressLint("SetTextI18n")
     public void onButtonPress(View view) {
-        Intent goToOptions = new Intent(this, SettingsActivity.class); //Intent for switching to the settings screen
+        Intent settings = new Intent(this, SettingsActivity.class); //Intent for switching to the settings screen
         Intent returnToMenu = new Intent(this, MainActivity.class); //Intent for returning to the main menu
-        Intent goToCurrencyMenu = new Intent(this, CurrencyList.class);  //Intent for switching to the currency options menu
+        Intent CurrencyList = new Intent(this, CurrencyList.class);  //Intent for switching to the currency menu
         switch (view.getId()) {
-            case R.id.homeButton:   //Home button returns to the initial screen
+            //home button
+            case R.id.homeButton:
                 startActivity(returnToMenu);
                 break;
-            case R.id.optionsButton: //Switches to the settings screen
-                startActivity(goToOptions);
+            //settings button
+            case R.id.settingsButton:
+                startActivity(settings);
                 break;
-            case R.id.convertedCurrencyButton:    //Starts activity that allows users to choose currency type
+            case R.id.convertedCurrencyButton:
                 preferences.edit().putBoolean("currencyBoolean", false).apply(); //Boolean = False if button clicked is converted currency
-                startActivity(goToCurrencyMenu);
+                startActivity(CurrencyList);
                 break;
-            case R.id.resetButton:  //Resets all variables and stored values, based on default values and preferences
-                inputCurrencyType.setText("AUD"); //Setting input currency text based on preferences
-                convertedCurrencyType.setText("Choose a currency!"); //Setting converting currency text to default
-                preferences.edit().putString("Option2", null).apply(); //Resets user selection for converting currency
-                inputCurrency.setText(""); //Resetting values for user input
-                convertedCurrency.setText("The result appear here!"); //Resetting values for converted result
-                userInput = 0; //Resetting variable value
-                userInputUsd = 0; //Resetting variable value
-                convertedResult = 0; //Resetting variable value
+            //resetting everything
+            case R.id.resetButton:
+                inputCurrencyType.setText("AUD");
+                convertedCurrencyType.setText("Choose a currency!");
+                preferences.edit().putString("Option2", null).apply();
+                inputCurrency.setText("");
+                convertedCurrency.setText("The result will appear here!");
+                userInput = 0;
+                userInputUsd = 0;
+                convertedResult = 0;
                 break;
         }
     }
 
-    //Method to set preference application theme according to previous user selection
+    //Method to theme according to user preference
     public void setPrefTheme() {
         String prefTheme = preferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {

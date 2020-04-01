@@ -17,12 +17,12 @@ public class SettingsActivity extends AppCompatActivity {
     RadioButton twoDecimals;
     RadioButton defaultTheme;
     RadioButton nightTheme;
-    SharedPreferences preferences; //used to store and manage values based on user activity from current and other activities
+    SharedPreferences preferences;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) { //Creating objects
+    protected void onCreate(Bundle savedInstanceState) {
         preferences = getSharedPreferences("Settings", MODE_PRIVATE);
-        setPrefTheme(); //Setting preferred theme
+        setTheme(); //Setting preferred theme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
         setTitle("Settings"); //Setting display title
@@ -32,17 +32,14 @@ public class SettingsActivity extends AppCompatActivity {
         themeRadioGroup = findViewById(R.id.themeRadioGroup);
         defaultTheme = findViewById(R.id.defaultTheme);
         nightTheme = findViewById(R.id.nightTheme);
-//        funTheme = findViewById(R.id.funTheme);
-//        defaultImage = findViewById(R.id.defaultImage);
 
-        //IF/ELSE statement to decide which radio button is checked by default, based on previous or default selection for the Significant Figures
+//if else to check the radio button selection
         if (preferences.getInt("roundingOff", 2) == 0) {
             sigFigRadioGroup.check(wholeNumber.getId());
         } else {
             sigFigRadioGroup.check(twoDecimals.getId());
         }
 
-        //IF/ELSE statement to decide which radio button is checked by default, based on previous or default selection for the Themes
         if (preferences.getString("themeName", "AppTheme").equals("AppTheme")) {
             themeRadioGroup.check(defaultTheme.getId());
         } else if (preferences.getString("themeName", "AppTheme").equals("NightMode")) {
@@ -53,24 +50,17 @@ public class SettingsActivity extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-
     }
 
-    //Method onButtonPress for android:onClick in the activity_settings.xml file
     public void onButtonPress(View view) {
-        //Intent for switching to the currency options page
-        Intent returnToCurrencyConverter = new Intent(this, ConversionActivity.class);  //Intent for returning to the currency conversion page
+        Intent returnToCurrencyConverter = new Intent(this, ConversionActivity.class);
 
-        //Switch-Case statement for the different buttons and actions to be carried out
-        if (view.getId() == R.id.backButton) {   //Returns user to the currency conversion activity
+        if (view.getId() == R.id.backButton) {
             startActivity(returnToCurrencyConverter);
             finish();
-
-
         }
     }
 
-    //Method onRadioButtonPress for android:onClick for radio buttons in the activity_settings.xml file
     public void onRadioButtonPress(View view) {
         Intent refreshSettings = new Intent(this, SettingsActivity.class);  //Intent used to restart the activity to reflect changes to the theme
         refreshSettings.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //Enables a smoother transition
@@ -79,29 +69,28 @@ public class SettingsActivity extends AppCompatActivity {
                 preferences.edit().putInt("roundingOff", 0).apply();    //set preferences to whole numbers
                 break;
             case R.id.twoDecimals:
-                preferences.edit().putInt("roundingOff", 2).apply();    //set preferences to two decimals
+                preferences.edit().putInt("roundingOff", 2).apply();    //set preferences to decimals
                 break;
             case R.id.defaultTheme:
-                preferences.edit().putString("themeName", "AppTheme").apply(); //set preferences to the default theme
+                preferences.edit().putString("themeName", "AppTheme").apply();
                 finish();   //stops the current activity
                 startActivity(refreshSettings); //Starts the activity again
                 break;
             case R.id.nightTheme:
                 preferences.edit().putString("themeName", "NightMode").apply(); //set preferences to the night theme
-                finish();   //stops the current activity
-                startActivity(refreshSettings); //Starts the activity again
+                finish();
+                startActivity(refreshSettings);
                 break;
         }
     }
 
-    //Method to set preference application theme according to previous user selection
-    public void setPrefTheme() {
+    //method to to set selected theme
+    public void setTheme() {
         String prefTheme = preferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
         } else if (prefTheme.equals("NightMode")) {
             setTheme(R.style.NightMode);
         }
-
     }
 }

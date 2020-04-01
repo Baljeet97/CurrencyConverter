@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,9 +7,6 @@
     android:padding="10dp"
     android:rowCount="6"
     tools:context=".CurrencyList">
-
-
-    <!--Second row, First Column, USD-->
 
     <TableLayout
         android:layout_width="match_parent"
@@ -32,8 +28,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="US DOLLAR" />
-
+            android:text="@string/us_dollar" />
 
         <Button
             android:id="@+id/thbButton"
@@ -42,7 +37,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="THB" />
+            android:text="@string/thai_baht" />
 
         <Button
             android:id="@+id/nzButton"
@@ -51,10 +46,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="NZD" />
-
-        <!--        </TableRow>-->
-
+            android:text="@string/new_zealand_dollar" />
 
         <Button
             android:id="@+id/jpyButton"
@@ -63,8 +55,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="JPY" />
-
+            android:text="@string/japanese_yen" />
 
         <Button
             android:id="@+id/eurButton"
@@ -73,8 +64,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="EURO" />
-
+            android:text="@string/euro" />
 
         <Button
             android:id="@+id/sinButton"
@@ -83,8 +73,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="SIN" />
-
+            android:text="@string/singapore_dollar" />
 
         <Button
             android:id="@+id/idrButton"
@@ -93,7 +82,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="IDR" />
+            android:text="@string/indonesian_rupiah" />
 
         <Button
             android:id="@+id/cadButton"
@@ -102,7 +91,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="CAD" />
+            android:text="@string/canadian_dollar" />
 
         <Button
             android:id="@+id/gbpButton"
@@ -111,8 +100,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="GBP" />
-
+            android:text="@string/pound_sterling" />
 
         <Button
             android:id="@+id/uaeButton"
@@ -121,7 +109,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="UAE" />
+            android:text="@string/united_arab_emirates_dirham" />
 
         <Button
             android:id="@+id/inrButton"
@@ -130,7 +118,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="INR" />
+            android:text="@string/indian_rupee" />
 
         <Button
             android:id="@+id/hkdButton"
@@ -139,6 +127,7 @@
             android:layout_gravity="center"
             android:onClick="onButtonPress"
             android:padding="5dp"
-            android:text="HKD" />
+            android:text="@string/hong_kong_dollar" />
+
     </TableLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

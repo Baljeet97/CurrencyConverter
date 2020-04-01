@@ -6,31 +6,13 @@
     android:orientation="vertical"
     tools:context=".SettingsActivity">
 
-    <!--TextView to display Header-->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp"
-        android:text="Settings"
-        android:textSize="25sp" />
-
-    <!--TextView to display Sub-header, Default Currency-->
-
-    <!--Layout for choosing default currency type in the conversion activity-->
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" />
-
-    <!--TextView to display Sub-header, Significant Figures-->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Significant Figures"
+        android:text="@string/resulting_figures"
         android:textSize="15sp" />
 
-    <!--Layout for the significant figure radio buttons-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,42 +20,38 @@
         android:padding="10dp"
         android:weightSum="2">
 
-        <!--RadioGroup for the significant figure radio buttons-->
         <RadioGroup
             android:id="@+id/sigFigRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
-            <!--RadioButton for user preference of whole numbers-->
             <RadioButton
                 android:id="@+id/wholeNumber"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonPress"
-                android:text="Whole Number" />
+                android:text="@string/whole_number" />
 
-            <!--RadioButton for user preference of two decimal places-->
             <RadioButton
                 android:id="@+id/twoDecimals"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonPress"
-                android:text="Two Decimal Places" />
+                android:text="@string/_2_decimal_places" />
         </RadioGroup>
     </LinearLayout>
 
-    <!--TextView to display Sub-header, Themes-->
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="10dp"
-        android:text="Themes"
+        android:text="@string/theme"
         android:textSize="15sp" />
 
-    <!--Layout for the Theme options-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -81,48 +59,36 @@
         android:padding="10dp"
         android:weightSum="3">
 
-        <!--RadioGroup for the theme RadioButtons-->
         <RadioGroup
             android:id="@+id/themeRadioGroup"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="UselessParent">
 
-            <!--RadioButton for user preference of the default theme-->
             <RadioButton
                 android:id="@+id/defaultTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonPress"
-                android:text="Light" />
+                android:text="@string/light" />
 
-            <!--RadioButton for user preference of the night theme-->
             <RadioButton
                 android:id="@+id/nightTheme"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:onClick="onRadioButtonPress"
-                android:text="Dark" />
+                android:text="@string/dark" />
 
-            <!--RadioButton for user preference of the fun theme-->
         </RadioGroup>
     </LinearLayout>
 
-    <!--Layout to place button at end-->
-    <LinearLayout
-        android:layout_width="match_parent"
+    <Button
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <!--Button to return to conversion activity-->
-        <Button
-            android:id="@+id/backButton"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:onClick="onButtonPress"
-            android:text="Back" />
-    </LinearLayout>
+        android:onClick="onButtonPress"
+        android:text="@string/back" />
 </LinearLayout>
