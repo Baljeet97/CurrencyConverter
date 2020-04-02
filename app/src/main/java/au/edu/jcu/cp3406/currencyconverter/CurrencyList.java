@@ -91,7 +91,7 @@ public class CurrencyList extends AppCompatActivity {
                 break;
             case (R.id.eurButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "eur").apply();
+                    preferences.edit().putString("Option2", "euro").apply();
                 }
                 finish();
                 break;

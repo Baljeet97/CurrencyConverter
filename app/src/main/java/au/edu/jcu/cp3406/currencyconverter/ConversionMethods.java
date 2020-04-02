@@ -7,64 +7,64 @@ import java.math.RoundingMode;
 class ConversionMethods {
 
     /*this method is use to store user input*/
-    static double convertAUD(double userInput) {
-        double userInputUsd;
-        userInputUsd = userInput;
-        return userInputUsd;
+    static double userInput(double userInput) {
+        double userInputAud;
+        userInputAud = userInput;
+        return userInputAud;
     }
 
     /*Part two of converting user input into selected currency type*/
-    static double convertActual(String currencyType, double userInputUsd) {
+    static double conversion(String currencyType, double userInputAud) {
         //Conversion rates are from  date : "30/3/2020" Time: 1pm"
         double convertedResult = 0.0;
         switch (currencyType) {
             //American dollar
             case "usd":
-                convertedResult = userInputUsd * 0.61;
+                convertedResult = userInputAud * 0.61;
                 break;
             //Pound sterling
             case "gbp":
-                convertedResult = userInputUsd * 0.50;
+                convertedResult = userInputAud * 0.5;
                 break;
             //Canadian Dollar
             case "cad":
-                convertedResult = userInputUsd * 0.86;
+                convertedResult = userInputAud * 0.86;
                 break;
             //Thai Baht
             case "thb":
-                convertedResult = userInputUsd * 19.86;
+                convertedResult = userInputAud * 19.86;
                 break;
             //New Zealand Dollar
             case "nz":
-                convertedResult = userInputUsd * 1.02;
+                convertedResult = userInputAud * 1.02;
                 break;
             //Japanese Yen
             case "jpy":
-                convertedResult = userInputUsd * 65.91;
+                convertedResult = userInputAud * 65.91;
                 break;
             //Euro
-            case "eur":
-                convertedResult = userInputUsd * 0.55;
+            case "euro":
+                convertedResult = userInputAud * 0.55;
                 break;
             //Singapore Dollar
             case "sin":
-                convertedResult = userInputUsd * 0.88;
+                convertedResult = userInputAud * 0.88;
                 break;
             //Indonesian Rupiah
             case "idr":
-                convertedResult = userInputUsd * 10036.34;
+                convertedResult = userInputAud * 10036.34;
                 break;
             //United Arab Emirates Dirham
             case "uae":
-                convertedResult = userInputUsd * 2.26;
+                convertedResult = userInputAud * 2.26;
                 break;
             //Indian Rupee
             case "inr":
-                convertedResult = userInputUsd * 46.37;
+                convertedResult = userInputAud * 46.37;
                 break;
             //Hong Kong Dollar
             case "hkd":
-                convertedResult = userInputUsd * 4.76;
+                convertedResult = userInputAud * 4.76;
                 break;
             case "":
                 break;

@@ -12,8 +12,8 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.convertActual;
-import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.convertAUD;
+import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.conversion;
+import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.userInput;
 import static au.edu.jcu.cp3406.currencyconverter.ConversionMethods.roundConvertedValue;
 
 
@@ -73,8 +73,8 @@ public class ConversionActivity extends AppCompatActivity {
 
                     //if statement to check if currency type is selected
                     if (!convertedCurrencyType.getText().toString().equals("Choose a currency!")) {
-                        userInputUsd = convertAUD(userInput);
-                        convertedResult = convertActual(convertedCurrencyType.getText().toString(), userInputUsd);
+                        userInputUsd = userInput(userInput);
+                        convertedResult = conversion(convertedCurrencyType.getText().toString(), userInputUsd);
                         int roundOffInt = preferences.getInt("roundingOff", 2);
                         convertedCurrency.setText(Double.toString(roundConvertedValue(convertedResult, roundOffInt)));
                     }
