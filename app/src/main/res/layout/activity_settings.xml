@@ -81,7 +81,6 @@
                 android:layout_weight="1"
                 android:onClick="onRadioButtonPress"
                 android:text="@string/dark" />
-
         </RadioGroup>
     </LinearLayout>
 

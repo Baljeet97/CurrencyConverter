@@ -31,5 +31,6 @@
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="back">Back</string>
+    <string name="conversion_rates">Conversion Rates</string>
 </resources>
 

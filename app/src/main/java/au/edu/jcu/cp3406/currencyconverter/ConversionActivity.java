@@ -104,7 +104,7 @@ public class ConversionActivity extends AppCompatActivity {
                 startActivity(settings);
                 break;
             case R.id.currencyButton:
-                sharedPreferences.edit().putBoolean("currencyBoolean", false).apply(); //Boolean = False if button clicked is converted currency
+                sharedPreferences.edit().putBoolean("currencyBoolean", false).apply();
                 startActivity(CurrencyList);
                 break;
             //resetting everything

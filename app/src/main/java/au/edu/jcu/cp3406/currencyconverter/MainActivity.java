@@ -29,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    public void conversionRateClicked(View view) {
+
+    }
+
     public void setTheme() {
         String prefTheme = sharedPreferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
