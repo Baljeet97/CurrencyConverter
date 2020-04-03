@@ -1,5 +1,5 @@
 package au.edu.jcu.cp3406.currencyconverter;
-/*Main activity runs */
+/*Main activity runs*/
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -29,9 +29,9 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-
     public void conversionRateClicked(View view) {
-
+        Intent intent = new Intent(this, ConversionRatesActivity.class);
+        startActivity(intent);
     }
 
     public void setTheme() {

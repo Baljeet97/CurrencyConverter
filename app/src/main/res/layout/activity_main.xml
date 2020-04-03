@@ -50,7 +50,7 @@
             android:layout_width="233dp"
             android:layout_height="110dp"
             android:layout_marginStart="30dp"
-            android:onClick="onButtonPress"
+            android:onClick="conversionRateClicked"
             android:text="@string/conversion_rates" />
     </LinearLayout>
 </androidx.appcompat.widget.LinearLayoutCompat>

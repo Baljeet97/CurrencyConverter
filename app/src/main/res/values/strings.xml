@@ -22,7 +22,7 @@
     <string name="indian_rupee">Indian Rupee</string>
     <string name="hong_kong_dollar">Hong Kong Dollar</string>
     <string name="settings">Settings</string>
-    <string name="welcome">Welcome to the\n Currency Converter\nPress button to start!</string>
+    <string name="welcome">Welcome to the\n Currency Converter\n \n This app only converts Australian Dollar to various Currencies</string>
     <string name="start">Start Conversion</string>
     <string name="resulting_figures">Resulting Figures</string>
     <string name="whole_number">Whole Number</string>
@@ -32,5 +32,8 @@
     <string name="dark">Dark</string>
     <string name="back">Back</string>
     <string name="conversion_rates">Conversion Rates</string>
+    <string name="date_and_time">Conversion Rates are based on \n Date : 30/3/2020 \n Time: 1pm\n\n1 AUD equals to:</string>
+    <string name="aud_equals">1 AUD equals to:</string>
+    <string name="rates">• 0.61 USD\n• 0.5 Pound Sterling\n• 0.86 Canadian Dollar\n• 19.86 Thai Baht\n• 1.02 New Zealand Dollar\n• 65.91 Japanese Yen\n• 0.55 Euro\n• 2.26 United Arab Emirates Dirham\n• 0.88 Singapore Dollar\n• 10036.34 Indonesian Rupiah\n• 46.37 Indian Rupee\n• 4.76 Hong Kong Dollar</string>
 </resources>
 

@@ -33,7 +33,7 @@ public class ConversionActivity extends AppCompatActivity {
         sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
         setPrefTheme(); //Setting preferred theme
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_converting_currency);
+        setContentView(R.layout.activity_conversion);
         setTitle("Currency Converter"); //Setting title
         inputCurrency = findViewById(R.id.inputCurrency);
         convertedCurrency = findViewById(R.id.convertedCurrency);
