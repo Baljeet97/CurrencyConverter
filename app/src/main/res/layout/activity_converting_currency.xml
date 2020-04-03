@@ -8,14 +8,12 @@
     android:weightSum="8"
     tools:context=".ConversionActivity">
 
-    <!--Layout for currency to be converted portion-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:orientation="horizontal">
 
-        <!--EditText for user input-->
         <EditText
             android:id="@+id/inputCurrency"
             android:layout_width="wrap_content"
@@ -30,7 +28,6 @@
             android:textSize="20sp"
             tools:ignore="NestedWeights" />
 
-        <!--Nested Layout for Image, text and Change currency Button-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -38,31 +35,22 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <!--ImageView based on selected currency-->
-
-            <!--TextView based on selected currency-->
             <TextView
-                android:id="@+id/inputCurrencyType"
+                android:id="@+id/currencyType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="@string/aud"
                 android:textSize="30sp" />
-
-            <!--Button to start activity to allow user to choose currency types-->
         </LinearLayout>
     </LinearLayout>
 
-    <!--TextView to display a simple conversion message-->
-
-    <!--Layout for results of converted currency and options-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="3"
         android:orientation="horizontal">
 
-        <!--TextView that displays converted currency results-->
         <TextView
             android:id="@+id/convertedCurrency"
             android:layout_width="wrap_content"
@@ -74,7 +62,6 @@
             android:textSize="20sp"
             tools:ignore="NestedWeights" />
 
-        <!--Nested Layout for Image, text and Change currency Button-->
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -82,9 +69,6 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
-            <!--ImageView based on selected currency-->
-
-            <!--TextView based on selected currency-->
             <TextView
                 android:id="@+id/convertedCurrencyType"
                 android:layout_width="99dp"
@@ -93,9 +77,8 @@
                 android:text="@string/choose_a_currency"
                 android:textSize="20sp" />
 
-            <!--Button to start activity to allow user to choose currency types-->
             <Button
-                android:id="@+id/convertedCurrencyButton"
+                android:id="@+id/currencyButton"
                 android:layout_width="match_parent"
                 android:layout_height="72dp"
                 android:layout_gravity="center"
@@ -104,7 +87,6 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!--Layout for the various action Button-->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -141,6 +123,4 @@
             android:text="@string/reset"
             tools:ignore="ButtonStyle" />
     </LinearLayout>
-
-    <!--TextView to display a simple message-->
 </LinearLayout>

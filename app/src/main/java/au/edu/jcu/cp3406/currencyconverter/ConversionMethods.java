@@ -75,8 +75,8 @@ class ConversionMethods {
     /*Method to round double number to two decimal places.*/
     static Double roundConvertedValue(Double convertedResult, int decimalPlace) {
         if (decimalPlace < 0) throw new IllegalArgumentException();
-        BigDecimal bd = new BigDecimal(convertedResult);
-        bd = bd.setScale(decimalPlace, RoundingMode.HALF_UP);
-        return bd.doubleValue();
+        BigDecimal bigDecimal = new BigDecimal(convertedResult);
+        bigDecimal = bigDecimal.setScale(decimalPlace, RoundingMode.HALF_UP);
+        return bigDecimal.doubleValue();
     }
 }

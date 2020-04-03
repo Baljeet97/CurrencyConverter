@@ -17,11 +17,11 @@ public class SettingsActivity extends AppCompatActivity {
     RadioButton twoDecimals;
     RadioButton defaultTheme;
     RadioButton nightTheme;
-    SharedPreferences preferences;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
         setTheme(); //Setting preferred theme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
@@ -34,15 +34,15 @@ public class SettingsActivity extends AppCompatActivity {
         nightTheme = findViewById(R.id.nightTheme);
 
 //if else to check the radio button selection
-        if (preferences.getInt("roundingOff", 2) == 0) {
+        if (sharedPreferences.getInt("roundingOff", 2) == 0) {
             sigFigRadioGroup.check(wholeNumber.getId());
         } else {
             sigFigRadioGroup.check(twoDecimals.getId());
         }
 
-        if (preferences.getString("themeName", "AppTheme").equals("AppTheme")) {
+        if (sharedPreferences.getString("themeName", "AppTheme").equals("AppTheme")) {
             themeRadioGroup.check(defaultTheme.getId());
-        } else if (preferences.getString("themeName", "AppTheme").equals("NightMode")) {
+        } else if (sharedPreferences.getString("themeName", "AppTheme").equals("NightMode")) {
             themeRadioGroup.check(nightTheme.getId());
         }
     }
@@ -66,18 +66,18 @@ public class SettingsActivity extends AppCompatActivity {
         refreshSettings.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION); //Enables a smoother transition
         switch (view.getId()) {
             case R.id.wholeNumber:
-                preferences.edit().putInt("roundingOff", 0).apply();    //set preferences to whole numbers
+                sharedPreferences.edit().putInt("roundingOff", 0).apply();    //set preferences to whole numbers
                 break;
             case R.id.twoDecimals:
-                preferences.edit().putInt("roundingOff", 2).apply();    //set preferences to decimals
+                sharedPreferences.edit().putInt("roundingOff", 2).apply();    //set preferences to decimals
                 break;
             case R.id.defaultTheme:
-                preferences.edit().putString("themeName", "AppTheme").apply();
+                sharedPreferences.edit().putString("themeName", "AppTheme").apply();
                 finish();   //stops the current activity
                 startActivity(refreshSettings); //Starts the activity again
                 break;
             case R.id.nightTheme:
-                preferences.edit().putString("themeName", "NightMode").apply(); //set preferences to the night theme
+                sharedPreferences.edit().putString("themeName", "NightMode").apply(); //set preferences to the night theme
                 finish();
                 startActivity(refreshSettings);
                 break;
@@ -86,7 +86,7 @@ public class SettingsActivity extends AppCompatActivity {
 
     //method to to set selected theme
     public void setTheme() {
-        String prefTheme = preferences.getString("themeName", "AppTheme");
+        String prefTheme = sharedPreferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
         } else if (prefTheme.equals("NightMode")) {

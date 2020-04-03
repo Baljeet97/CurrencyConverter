@@ -10,27 +10,27 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class MainActivity extends AppCompatActivity {
-    Button currencyButton;
-    SharedPreferences preferences; //to store preferences
+    Button startButton;
+    SharedPreferences sharedPreferences; //to store preferences
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
         setTheme(); //Setting theme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        currencyButton = findViewById(R.id.currencyButton);
+        startButton = findViewById(R.id.startButton);
     }
 
     public void onButtonPress(View view) {
-        if (view.getId() == R.id.currencyButton) {
+        if (view.getId() == R.id.startButton) {
             Intent convertCurrency = new Intent(this, ConversionActivity.class);
             startActivity(convertCurrency);
         }
     }
 
     public void setTheme() {
-        String prefTheme = preferences.getString("themeName", "AppTheme");
+        String prefTheme = sharedPreferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
         } else if (prefTheme.equals("NightMode")) {

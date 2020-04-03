@@ -21,23 +21,23 @@ public class ConversionActivity extends AppCompatActivity {
 
     EditText inputCurrency;
     TextView convertedCurrency;
-    TextView inputCurrencyType;
+    TextView currencyType;
     TextView convertedCurrencyType;
     double userInput; //to store user input
     double userInputUsd; //conversion calculations
     double convertedResult; //conversion calculations
-    SharedPreferences preferences; //to store and manage values based activities
+    SharedPreferences sharedPreferences; //to store and manage values based activities
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
         setPrefTheme(); //Setting preferred theme
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_converting_currency);
         setTitle("Currency Converter"); //Setting title
         inputCurrency = findViewById(R.id.inputCurrency);
         convertedCurrency = findViewById(R.id.convertedCurrency);
-        inputCurrencyType = findViewById(R.id.inputCurrencyType);
+        currencyType = findViewById(R.id.currencyType);
         convertedCurrencyType = findViewById(R.id.convertedCurrencyType);
     }
 
@@ -55,9 +55,9 @@ public class ConversionActivity extends AppCompatActivity {
     /*Method to set preference, values, and converting user input to final result*/
     public void currencyConverterMain() {
 
-        convertedCurrencyType.setText(preferences.getString("Option2", "Choose a currency!"));
+        convertedCurrencyType.setText(sharedPreferences.getString("Option2", "Choose a currency!"));
 
-        inputCurrency.setText(preferences.getString("initialUserInput", null)); //Saving user input between activities.
+        inputCurrency.setText(sharedPreferences.getString("initialUserInput", null)); //Saving user input between activities.
 
         inputCurrency.addTextChangedListener(new TextWatcher() { //Listener for EditText inputCurrency
             @Override
@@ -68,15 +68,15 @@ public class ConversionActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try {
-                    preferences.edit().putString("initialUserInput", charSequence.toString()).apply(); //saving currency type value
+                    sharedPreferences.edit().putString("initialUserInput", charSequence.toString()).apply(); //saving currency type value
                     userInput = Double.parseDouble(charSequence.toString()); //converts user input into EditText to string
 
                     //if statement to check if currency type is selected
                     if (!convertedCurrencyType.getText().toString().equals("Choose a currency!")) {
                         userInputUsd = userInput(userInput);
                         convertedResult = conversion(convertedCurrencyType.getText().toString(), userInputUsd);
-                        int roundOffInt = preferences.getInt("roundingOff", 2);
-                        convertedCurrency.setText(Double.toString(roundConvertedValue(convertedResult, roundOffInt)));
+                        int roundingOff = sharedPreferences.getInt("roundingOff", 2);
+                        convertedCurrency.setText(Double.toString(roundConvertedValue(convertedResult, roundingOff)));
                     }
                 } catch (Exception ignored) {
                 }
@@ -88,7 +88,7 @@ public class ConversionActivity extends AppCompatActivity {
         });
     }
 
-    //Method called for android:onClick in the activity_convert_currency.xml file
+
     @SuppressLint("SetTextI18n")
     public void onButtonPress(View view) {
         Intent settings = new Intent(this, SettingsActivity.class); //Intent for switching to the settings screen
@@ -103,15 +103,15 @@ public class ConversionActivity extends AppCompatActivity {
             case R.id.settingsButton:
                 startActivity(settings);
                 break;
-            case R.id.convertedCurrencyButton:
-                preferences.edit().putBoolean("currencyBoolean", false).apply(); //Boolean = False if button clicked is converted currency
+            case R.id.currencyButton:
+                sharedPreferences.edit().putBoolean("currencyBoolean", false).apply(); //Boolean = False if button clicked is converted currency
                 startActivity(CurrencyList);
                 break;
             //resetting everything
             case R.id.resetButton:
-                inputCurrencyType.setText("AUD");
+                currencyType.setText("AUD");
                 convertedCurrencyType.setText("Choose a currency!");
-                preferences.edit().putString("Option2", null).apply();
+                sharedPreferences.edit().putString("Option2", null).apply();
                 inputCurrency.setText("");
                 convertedCurrency.setText("The result will appear here!");
                 userInput = 0;
@@ -123,7 +123,7 @@ public class ConversionActivity extends AppCompatActivity {
 
     //Method to theme according to user preference
     public void setPrefTheme() {
-        String prefTheme = preferences.getString("themeName", "AppTheme");
+        String prefTheme = sharedPreferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
         } else if (prefTheme.equals("NightMode")) {

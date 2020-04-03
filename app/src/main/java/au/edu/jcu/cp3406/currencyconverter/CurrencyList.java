@@ -12,11 +12,11 @@ public class CurrencyList extends AppCompatActivity {
     Boolean currencyOptionStatus; //Boolean to check if user has clicked on converted currency button
     Button usdButton, eurButton, gbpButton, hkdButton, sinButton,
             idrButton, inrButton, jpyButton, cadButton, nzdButton, thbButton, uaeButton;
-    SharedPreferences preferences;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        preferences = getSharedPreferences("Settings", MODE_PRIVATE);
+        sharedPreferences = getSharedPreferences("Settings", MODE_PRIVATE);
         setPrefTheme();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_currency_list);
@@ -39,13 +39,13 @@ public class CurrencyList extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        currencyOptionStatus = preferences.getBoolean("currencyBoolean", true);
+        currencyOptionStatus = sharedPreferences.getBoolean("currencyBoolean", true);
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        currencyOptionStatus = preferences.getBoolean("currencyBoolean", true);
+        currencyOptionStatus = sharedPreferences.getBoolean("currencyBoolean", true);
     }
 
     /*this method checks the variable to assign values according to the selection*/
@@ -55,73 +55,73 @@ public class CurrencyList extends AppCompatActivity {
         switch (view.getId()) {
             case (R.id.usdButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "usd").apply();
+                    sharedPreferences.edit().putString("Option2", "usd").apply();
                 }
                 finish();
                 break;
             case (R.id.gbpButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "gbp").apply();
+                    sharedPreferences.edit().putString("Option2", "gbp").apply();
                 }
                 finish();
                 break;
             case (R.id.cadButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "cad").apply();
+                    sharedPreferences.edit().putString("Option2", "cad").apply();
                 }
                 finish();
                 break;
             case (R.id.thbButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "thb").apply();
+                    sharedPreferences.edit().putString("Option2", "thb").apply();
                 }
                 finish();
                 break;
             case (R.id.nzButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "nz").apply();
+                    sharedPreferences.edit().putString("Option2", "nz").apply();
                 }
                 finish();
                 break;
             case (R.id.jpyButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "jpy").apply();
+                    sharedPreferences.edit().putString("Option2", "jpy").apply();
                 }
                 finish();
                 break;
             case (R.id.eurButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "euro").apply();
+                    sharedPreferences.edit().putString("Option2", "euro").apply();
                 }
                 finish();
                 break;
             case (R.id.sinButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "sin").apply();
+                    sharedPreferences.edit().putString("Option2", "sin").apply();
                 }
                 finish();
                 break;
             case (R.id.idrButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "idr").apply();
+                    sharedPreferences.edit().putString("Option2", "idr").apply();
                 }
                 finish();
                 break;
             case (R.id.uaeButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "uae").apply();
+                    sharedPreferences.edit().putString("Option2", "uae").apply();
                 }
                 finish();
                 break;
             case (R.id.inrButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "inr").apply();
+                    sharedPreferences.edit().putString("Option2", "inr").apply();
                 }
                 finish();
                 break;
             case (R.id.hkdButton):
                 if (!currencyOptionStatus) {
-                    preferences.edit().putString("Option2", "hkd").apply();
+                    sharedPreferences.edit().putString("Option2", "hkd").apply();
                 }
                 finish();
                 break;
@@ -130,7 +130,7 @@ public class CurrencyList extends AppCompatActivity {
 
     //Method to set preference application theme according to previous user selection
     public void setPrefTheme() {
-        String prefTheme = preferences.getString("themeName", "AppTheme");
+        String prefTheme = sharedPreferences.getString("themeName", "AppTheme");
         if (prefTheme.equals("AppTheme")) {
             setTheme(R.style.AppTheme);
         } else if (prefTheme.equals("NightMode")) {
