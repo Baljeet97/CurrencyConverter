@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class CurrencyList extends AppCompatActivity {
-    Boolean currencyOptionStatus; //Boolean to check if user has clicked on converted currency button
+    Boolean currencyOptionStatus;
     Button usdButton, eurButton, gbpButton, hkdButton, sinButton,
             idrButton, inrButton, jpyButton, cadButton, nzdButton, thbButton, uaeButton;
     SharedPreferences sharedPreferences;
@@ -48,10 +48,9 @@ public class CurrencyList extends AppCompatActivity {
         currencyOptionStatus = sharedPreferences.getBoolean("currencyBoolean", true);
     }
 
-    /*this method checks the variable to assign values according to the selection*/
+    /*this method checks the button clicked to assign values according to the selection*/
     public void onButtonPress(View view) {
         new Intent(this, ConversionActivity.class);
-        new Intent(this, SettingsActivity.class);
         switch (view.getId()) {
             case (R.id.usdButton):
                 if (!currencyOptionStatus) {

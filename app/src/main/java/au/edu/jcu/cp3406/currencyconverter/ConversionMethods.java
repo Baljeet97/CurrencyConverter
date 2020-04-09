@@ -1,5 +1,5 @@
 package au.edu.jcu.cp3406.currencyconverter;
-/*ConversionMethod is use to convert store user input and convert it to selected currency*/
+/*ConversionMethod is use to store user input and convert it to selected currency*/
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -13,7 +13,7 @@ class ConversionMethods {
         return userInputAud;
     }
 
-    /*Part two of converting user input into selected currency type*/
+    /*converting user input into selected currency type*/
     static double conversion(String currencyType, double userInputAud) {
         //Conversion rates are from  date : "30/3/2020" Time: 1pm"
         double convertedResult = 0.0;

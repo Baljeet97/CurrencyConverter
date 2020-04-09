@@ -57,7 +57,7 @@ public class ConversionActivity extends AppCompatActivity {
 
         convertedCurrencyType.setText(sharedPreferences.getString("Option2", "Choose a currency!"));
 
-        inputCurrency.setText(sharedPreferences.getString("initialUserInput", null)); //Saving user input between activities.
+        inputCurrency.setText(sharedPreferences.getString("UserInput", null)); //Saving user input between activities.
 
         inputCurrency.addTextChangedListener(new TextWatcher() { //Listener for EditText inputCurrency
             @Override
@@ -68,7 +68,7 @@ public class ConversionActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 try {
-                    sharedPreferences.edit().putString("initialUserInput", charSequence.toString()).apply(); //saving currency type value
+                    sharedPreferences.edit().putString("UserInput", charSequence.toString()).apply(); //saving currency value
                     userInput = Double.parseDouble(charSequence.toString()); //converts user input into EditText to string
 
                     //if statement to check if currency type is selected

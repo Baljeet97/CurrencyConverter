@@ -1,5 +1,5 @@
 package au.edu.jcu.cp3406.currencyconverter;
-/*Main activity runs*/
+/*Main activity*/
 
 import android.content.Intent;
 import android.content.SharedPreferences;
